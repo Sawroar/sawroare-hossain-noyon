@@ -2,7 +2,9 @@
 import { CircleArrowRight, CircleChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import noyon from '../../public/noyon.png'
 import Particles from '../components/Particles'
+import Image from 'next/image'
 export default function Introduction() {
   return (
     <div className='relative flex items-center justify-center'>
@@ -35,9 +37,12 @@ export default function Introduction() {
           I help founders turn ideas <br />
           into seamless digital experiences
         </h1>
-        <h1 className='text-center text-2xl mt-6'>Hello, I'm Sawroare Hossain
-          Image
-          a Full Stack Developer</h1>
+        <div className='flex items-end justify-center gap-5'>
+          
+        <h1 className='text-center text-2xl mt-6'>Hello, I'm Sawroare Hossain</h1>
+       <Image className='rounded-2xl' src={noyon} width={50} height={20} alt='noyon'></Image>
+         <h1 className='text-center text-2xl'> a Full Stack Developer </h1>
+        </div>
         <div className="flex items-center justify-center gap-4 mt-6">
           <div className="flex items-center gap-4">
             {/* Let's Connect Button */}

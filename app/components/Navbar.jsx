@@ -56,7 +56,7 @@ export default function Navbar() {
                 href="#contact"
                 className="ml-2 px-4 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm font-sm text-white hover:bg-white/15 transition-all duration-300 border border-white/20"
               >
-                Book a Call
+                   Book a Call
               </a>
             </div>
           </motion.div>
