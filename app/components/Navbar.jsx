@@ -3,12 +3,11 @@ import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
     const [activeLink, setActiveLink] = useState('#home');
   const navLinks = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/' },
     { name: 'About', href: '#about' },
     { name: 'Work', href: '#projects' },
     { name: 'Blog', href: '#blog' },
@@ -38,7 +37,7 @@ export default function Navbar() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="hidden lg:block"
           >
-            <div className="flex items-center gap-1 px-2 py-2 bg-white/5 backdrop-blur-lg rounded-full border border-white/10 ">
+            <div className="flex items-center gap-1 px-2 py-2 bg-white/15 backdrop-blur-lg rounded-full border border-white/10 ">
               {navLinks.map((link, index) => (
                 <a
                   key={index}

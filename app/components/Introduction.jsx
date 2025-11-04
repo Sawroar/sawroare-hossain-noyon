@@ -37,10 +37,10 @@ export default function Introduction() {
           I help founders turn ideas <br />
           into seamless digital experiences
         </h1>
-        <div className='flex items-end justify-center gap-5'>
+        <div className='flex items-center justify-center gap-6 mt-6'>
           
-        <h1 className='text-center text-2xl mt-6'>Hello, I'm Sawroare Hossain</h1>
-       <Image className='rounded-2xl' src={noyon} width={50} height={20} alt='noyon'></Image>
+        <h1 className='text-center text-2xl '>Hello, I'm Sawroare Hossain</h1>
+       <Image className='rounded-2xl' src={noyon} width={70} height={40} alt='noyon'></Image>
          <h1 className='text-center text-2xl'> a Full Stack Developer </h1>
         </div>
         <div className="flex items-center justify-center gap-4 mt-6">
