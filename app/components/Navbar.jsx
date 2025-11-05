@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import ThemeSwitchIcon from './theme-switch';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-    const [activeLink, setActiveLink] = useState('#home');
+    const [activeLink, setActiveLink] = useState('home');
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '#about' },
@@ -19,7 +20,7 @@ export default function Navbar() {
         <div className="flex items-center justify-center relative">
           {/* Logo */}
           <motion.a
-            href="#home"
+            href="home"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -61,6 +62,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Grid Menu Icon */}
+      
           <motion.button
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -68,6 +70,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="hidden lg:flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/15 transition-all absolute right-6"
           >
+                <ThemeSwitchIcon></ThemeSwitchIcon>
             <svg
               width="10"
               height="10"

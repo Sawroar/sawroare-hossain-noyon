@@ -43,7 +43,7 @@ export default function Introduction() {
        <Image className='rounded-2xl' src={noyon} width={70} height={40} alt='noyon'></Image>
          <h1 className='text-center text-2xl'> a Full Stack Developer </h1>
         </div>
-        <div className="flex items-center justify-center gap-4 mt-6">
+        <div className="flex items-center justify-center gap-4 mt-6 bg-linear-90">
           <div className="flex items-center gap-4">
             {/* Let's Connect Button */}
             <button className="flex items-center gap-3 px-1.5 py-1  
