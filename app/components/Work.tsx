@@ -1,5 +1,6 @@
 import SpotlightCard from '@/components/SpotlightCard'
 import TiltedCard from '@/components/TiltedCard'
+import { CircleSmall } from 'lucide-react'
 
 export default function Work() {
     return (
@@ -10,85 +11,77 @@ export default function Work() {
                 <div className='grid col-span-8'>
                     <div>
                         <div className=' bg-blue-700 p-1 rounded-2xl'>
-                        <div className="col-span-1 md:col-span-4 md:row-span-2">
-          <SpotlightCard className="custom-spotlight-card p-1" spotlightColor="rgba(0, 229, 255, 0.2)">
-            <div className="h-[250px] md:h-[300px] n==">
-              <TiltedCard
-                imageSrc="https://youtu.be/KVR9V4vsp-Y?si=3Hz83qp7CnTMtgPT"
-                videoType="youtube"
-              captionText='Engine Experts'
-                rotateAmplitude={12}
-                scaleOnHover={1.1}
-                showTooltip={true}
-                displayOverlayContent={true}
-              
-              />
-            </div>
-          </SpotlightCard>
-        </div>
+                            <div className="col-span-1 md:col-span-4 md:row-span-2">
+                                <SpotlightCard className="custom-spotlight-card p-1" spotlightColor="rgba(0, 229, 255, 0.2)">
+                                    <div className="h-[250px] md:h-[300px] n==">
+                                        <TiltedCard
+                                            imageSrc="https://youtu.be/KVR9V4vsp-Y?si=3Hz83qp7CnTMtgPT"
+                                            videoType="youtube"
+                                            captionText='Engine Experts'
+                                            rotateAmplitude={12}
+                                            scaleOnHover={1.1}
+                                            showTooltip={true}
+                                            displayOverlayContent={true}
+
+                                        />
+                                    </div>
+                                </SpotlightCard>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className='grid col-span-4'>
-                    Next Ventures
-                    A platform designed for early-stage entrepreneurs to pitch, browse, and engage with startup ideas. It’s built to impress both users and investors with blazing speed, compelling visuals, and a modern tech stack.
 
-                    Leveraged Partial Prerendering and After for faster loading.
-                    Simplified idea submission with a clean, intuitive design.
-                    Enhanced browsing with seamless performance optimization.
-                    Next.jsNext.js
-                    ReactReact
-                    Tailwind CSSTailwind CSS
-                    TypeScriptTypeScript
-                    Motion.devMotion.dev
-                    Sanity cmsSanity cms
-                    Auth.jsAuth.js
-                    markdownmarkdown
-                    GROQGROQ
-                    SentrySentry
+                    <h3><span className='text-3xl font-bold'>Engine Experts </span> <br />
+                        <span className='text-xl mt-2'>Engine Experts </span> is a modern automotive service and repair website that showcases professional engine maintenance, repair services, and automotive solutions with a clean, professional design.
+                        <div className='flex items-center justify-between gap-2 mt-3'>
+                            <CircleSmall />
+                            <h3>        Clean, visually appealing presentation of automotive services </h3>
+                        </div>
+                    </h3>
+
+
+
                 </div>
             </div>
-            <div className='grid md:grid-cols-12 grid-cols-1 gap-5 mt-6 '>
+            <div className='grid md:grid-cols-12 gap-5 mt-4 '>
                 <div className='grid col-span-8'>
                     <div>
-                        <div className=' bg-blue-700 py-6 rounded-2xl border-[#3B82F6] border-4'>
-                            <TiltedCard
-                                imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
-                                altText="Kendrick Lamar - GNX Album Cover"
-                                captionText="Kendrick Lamar - GNX"
-                                containerHeight="300px"
-                                containerWidth="800px"
-                                imageHeight="300px"
-                                imageWidth="600px"
-                                rotateAmplitude={12}
-                                scaleOnHover={1.2}
-                                showMobileWarning={false}
-                                showTooltip={true}
-                                displayOverlayContent={true}
-                               
-                            />
+                        <div className=' bg-blue-700 p-1 rounded-2xl'>
+                            <div className="col-span-1 md:col-span-4 md:row-span-2">
+                                <SpotlightCard className="custom-spotlight-card p-1" spotlightColor="rgba(0, 229, 255, 0.2)">
+                                    <div className="h-[250px] md:h-[300px] n==">
+                                        <TiltedCard
+                                            imageSrc="https://youtu.be/KVR9V4vsp-Y?si=3Hz83qp7CnTMtgPT"
+                                            videoType="youtube"
+                                            captionText='Bistro Boss'
+                                            rotateAmplitude={12}
+                                            scaleOnHover={1.1}
+                                            showTooltip={true}
+                                            displayOverlayContent={true}
+
+                                        />
+                                    </div>
+                                </SpotlightCard>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className='grid col-span-4'>
-                    Next Ventures
-                    A platform designed for early-stage entrepreneurs to pitch, browse, and engage with startup ideas. It’s built to impress both users and investors with blazing speed, compelling visuals, and a modern tech stack.
 
-                    Leveraged Partial Prerendering and After for faster loading.
-                    Simplified idea submission with a clean, intuitive design.
-                    Enhanced browsing with seamless performance optimization.
-                    Next.jsNext.js
-                    ReactReact
-                    Tailwind CSSTailwind CSS
-                    TypeScriptTypeScript
-                    Motion.devMotion.dev
-                    Sanity cmsSanity cms
-                    Auth.jsAuth.js
-                    markdownmarkdown
-                    GROQGROQ
-                    SentrySentry
+                    <h3><span className='text-3xl font-bold'>Engine Experts </span> <br />
+                        <span className='text-xl mt-2'>Engine Experts </span> is a modern automotive service and repair website that showcases professional engine maintenance, repair services, and automotive solutions with a clean, professional design.
+                        <div className='flex items-center justify-between gap-2 mt-3'>
+                            <CircleSmall />
+                            <h3>        Clean, visually appealing presentation of automotive services </h3>
+                        </div>
+                    </h3>
+
+
+
                 </div>
             </div>
+        
 
         </div>
     )
