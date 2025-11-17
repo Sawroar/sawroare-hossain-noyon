@@ -5,6 +5,7 @@ import React from 'react'
 import noyon from '../../public/noyon.png'
 import Particles from '../components/Particles'
 import Image from 'next/image'
+import { MorphyButton } from '@/components/ui/morphy-button'
 export default function Introduction() {
   return (
     <div className='relative flex items-center justify-center'>
@@ -38,28 +39,33 @@ export default function Introduction() {
           into seamless digital experiences
         </h1>
         <div className='flex items-center justify-center gap-6 mt-6'>
-          
-        <h1 className='text-center text-2xl '>Hello, I'm Sawroare Hossain</h1>
-       <Image className='rounded-2xl' src={noyon} width={70} height={40} alt='noyon'></Image>
-         <h1 className='text-center text-2xl'> a Full Stack Developer </h1>
+
+          <h1 className='text-center text-2xl tracking-tight text-balance '>Hello, I'm Sawroare Hossain</h1>
+          <Image className='rounded-2xl' src={noyon} width={70} height={40} alt='noyon'></Image>
+          <h1 className='text-center text-2xl'> a Full Stack Developer </h1>
         </div>
         <div className="flex items-center justify-center gap-4 mt-6 bg-linear-90">
           <div className="flex items-center gap-4">
             {/* Let's Connect Button */}
-            <button className="flex items-center gap-3 px-1.5 py-1  
-                   rounded-full font-semibold    bg-white/10 backdrop-blur-sm hover:text-black  text-white hover:bg-white  border border-white/20
+            <button className="flex items-center  px-1.5 py-1  
+                   rounded-full font-semibold    bg-white/10 backdrop-blur-sm hover:text-black   border border-white/20
                    transition-all duration-600 group">
-              <span>Let's Connect</span>
-              <div className="w-8 h-8 flex items-center justify-center bg-white text-black rounded-full
+              <MorphyButton size="lg" className='cursor-pointer'>
+               <div className='flex items-center justify-between p-0  gap-3'>
+                 <h1>  Let's Connect</h1>
+                <div className="w-8 h-8 flex items-center justify-center bg-white text-black rounded-full
                   group-hover:bg-white  transition-all duration-800 group">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="black">
-                  <path d="M3 8H13M13 8L8 3M13 8L8 13"
-                    stroke="black"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round" />
-                </svg>
-              </div>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="white">
+                    <path d="M3 8H13M13 8L8 3M13 8L8 13"
+                      stroke="black"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round" />
+                  </svg>
+                </div>
+               </div>
+              </MorphyButton>
+
             </button>
 
             {/* Email Button */}

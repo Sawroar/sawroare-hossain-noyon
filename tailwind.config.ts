@@ -1,21 +1,16 @@
-// tailwind.config.ts
-export default {
-  theme: {
-    extend: {
-      keyframes: {
-        "canopy-x": {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-100% - var(--gap)))" },
-        },
-        "canopy-y": {
-          from: { transform: "translateY(0)" },
-          to: { transform: "translateY(calc(-100% - var(--gap)))" },
-        },
-      },
-      animation: {
-        "canopy-horizontal": "canopy-x var(--duration) infinite linear",
-        "canopy-vertical": "canopy-y var(--duration) linear infinite",
-      },
-    },
-  },
-}
+module.exports = { 
+   theme: { 
+     extend: { 
+       keyframes: { 
+         shine: { 
+           '0%': { 'background-position': '100%' }, 
+          '100%': { 'background-position': '-100%' }, 
+         }, 
+      }, 
+       animation: { 
+        shine: 'shine 5s linear infinite', 
+       }, 
+     }, 
+    }, 
+    plugins: [], 
+ };

@@ -9,6 +9,13 @@
   height: 100%;
 }
 
+
+.hover-pause:hover .animate-canopy-horizontal,
+.hover-pause:hover .animate-canopy-reverse-horizontal,
+.hover-pause:hover .animate-canopy-vertical,
+.hover-pause:hover .animate-canopy-reverse-vertical {
+  animation-play-state: paused;
+}
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

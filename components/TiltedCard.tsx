@@ -1,19 +1,15 @@
 'use client'
 import type { SpringOptions } from 'motion/react';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 
 interface TiltedCardProps {
-  imageSrc: React.ComponentProps<'img'>['src'];
+  imageSrc: React.ComponentProps<'video'>['src'];
+  videoType?: 'direct' | 'youtube';
   altText?: string;
   captionText?: string;
-  containerHeight?: React.CSSProperties['height'];
-  containerWidth?: React.CSSProperties['width'];
-  imageHeight?: React.CSSProperties['height'];
-  imageWidth?: React.CSSProperties['width'];
   scaleOnHover?: number;
   rotateAmplitude?: number;
-  showMobileWarning?: boolean;
   showTooltip?: boolean;
   overlayContent?: React.ReactNode;
   displayOverlayContent?: boolean;
@@ -25,22 +21,40 @@ const springValues: SpringOptions = {
   mass: 2
 };
 
+// Helper function to convert YouTube URL to clean embed URL
+function getYouTubeEmbedUrl(url: string): string {
+  const videoId = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/)?.[1];
+  if (!videoId) return url;
+  
+  return `https://www.youtube.com/embed/${videoId}?` +
+    'autoplay=1&' +
+    'mute=1&' +
+    'loop=1&' +
+    `playlist=${videoId}&` +
+    'controls=0&' +
+    'showinfo=0&' +
+    'modestbranding=1&' +
+    'rel=0&' +
+    'fs=0&' +
+    'playsinline=1&' +
+    'disablekb=1&' +
+    'iv_load_policy=3';
+}
+
 export default function TiltedCard({
   imageSrc,
-  altText = 'Tilted card image',
+  videoType = 'direct',
+  altText = 'Tilted card',
   captionText = '',
-  containerHeight = '300px',
-  containerWidth = '100%',
-  imageHeight = '300px',
-  imageWidth = '300px',
   scaleOnHover = 1.1,
   rotateAmplitude = 14,
-  showMobileWarning = true,
   showTooltip = true,
   overlayContent = null,
   displayOverlayContent = false
 }: TiltedCardProps) {
   const ref = useRef<HTMLElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useSpring(useMotionValue(0), springValues);
@@ -55,8 +69,20 @@ export default function TiltedCard({
 
   const [lastY, setLastY] = useState(0);
 
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   function handleMouse(e: React.MouseEvent<HTMLElement>) {
-    if (!ref.current) return;
+    // Disable tilt effect on mobile
+    if (isMobile || !ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
     const offsetX = e.clientX - rect.left - rect.width / 2;
@@ -77,11 +103,13 @@ export default function TiltedCard({
   }
 
   function handleMouseEnter() {
+    if (isMobile) return;
     scale.set(scaleOnHover);
     opacity.set(1);
   }
 
   function handleMouseLeave() {
+    if (isMobile) return;
     opacity.set(0);
     scale.set(1);
     rotateX.set(0);
@@ -92,51 +120,54 @@ export default function TiltedCard({
   return (
     <figure
       ref={ref}
-      className="relative w-full h-full [perspective:800px] flex flex-col items-center justify-center"
-      style={{
-        height: containerHeight,
-        width: containerWidth
-      }}
+      className="relative w-full h-full flex flex-col items-center justify-center perspective-[1000px]"
       onMouseMove={handleMouse}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {showMobileWarning && (
-        <div className="absolute top-4 text-center text-sm block sm:hidden">
-          This effect is not optimized for mobile. Check on desktop.
-        </div>
-      )}
-
       <motion.div
-        className="relative [transform-style:preserve-3d]"
+        className="relative w-full h-full transform-gpu"
         style={{
-          width: imageWidth,
-          height: imageHeight,
-          rotateX,
-          rotateY,
-          scale
+          rotateX: isMobile ? 0 : rotateX,
+          rotateY: isMobile ? 0 : rotateY,
+          scale: isMobile ? 1 : scale,
+          transformStyle: 'preserve-3d'
         }}
       >
-        <motion.img
-          src={imageSrc}
-          alt={altText}
-          className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
-          style={{
-            width: imageWidth,
-            height: imageHeight
-          }}
-        />
+        {videoType === 'youtube' ? (
+          <motion.iframe
+            src={getYouTubeEmbedUrl(imageSrc as string)}
+            className="w-full h-full rounded-lg md:rounded-2xl will-change-transform pointer-events-none aspect-video"
+            allow="autoplay; encrypted-media"
+            frameBorder="0"
+            title={altText}
+          />
+        ) : (
+          <motion.video
+            src={imageSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover rounded-lg md:rounded-2xl will-change-transform aspect-video"
+          />
+        )}
 
         {displayOverlayContent && overlayContent && (
-          <motion.div className="absolute top-0 left-0 z-[2] will-change-transform [transform:translateZ(30px)]">
+          <motion.div 
+            className="absolute inset-0 flex items-center justify-center z-10 p-4"
+            style={{
+              transform: isMobile ? 'none' : 'translateZ(30px)'
+            }}
+          >
             {overlayContent}
           </motion.div>
         )}
       </motion.div>
 
-      {showTooltip && (
+      {showTooltip && !isMobile && (
         <motion.figcaption
-          className="pointer-events-none absolute left-0 top-0 rounded-[4px] bg-white px-[10px] py-[4px] text-[10px] text-[#2d2d2d] opacity-0 z-[3] hidden sm:block"
+          className="pointer-events-none absolute left-0 top-0 rounded-lg bg-white px-2.5 py-1 text-xs text-gray-800 opacity-0 z-20 shadow-lg"
           style={{
             x,
             y,

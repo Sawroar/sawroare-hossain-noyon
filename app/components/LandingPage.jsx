@@ -1,17 +1,45 @@
-import React from 'react'
-import svg1 from '../../public/relation.svg'
+'use client'
+import svg1 from '../../public/connect.jpg'
+import noyon2 from '../../public/noyon2.jpg'
 import Image from 'next/image'
 import SpotlightCard from '../../components/SpotlightCard';
 import GradientText from '../../components/GradientText'
-import { FlowingLogos } from "../../components/ui/flowing-logos";
 import Globe from '@/components/ui/globe';
+import LogoLoop from '@/components/LogoLoop';
+import { MorphyButton } from '../../components/ui/morphy-button';
+import { AnimatedButton } from '@/components/ui/animated-button';
+import DraggableAvatar from '@/components/ui/draggable-avatar';
+
+const imageLogos = [
+  { src: "https://i.ibb.co.com/B5nqLV0Y/1.png", alt: "coffee", href: "https://B5nqLV0Y.com", title: "React", href: "https://react.dev" },  { 
+    node: (
+      <div className="flex items-center">
+        <span className="text-xl font-bold text-gray-800 dark:text-white">
+          Your Text Here
+        </span>
+      </div>
+    )
+  },
+  { src: "/logos/company2.png", alt: "Company 2", href: "https://company2.com" },
+  { src: "/logos/company3.png", alt: "Company 3", href: "https://company3.com" },
+];
 export default function LandingPage() {
   return (
     <div >
       <div className='grid  grid-cols-1 md:grid-cols-12  gap-3'>
         <div className=" col-span-8">
-          <SpotlightCard className=" grid-cols-8 custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
-            <div className=' bg-white/10 backdrop-blur-sm rounded-2xl'> <Image src={svg1} width={300} height={250} alt='svg'></Image></div>
+          <SpotlightCard className="  custom-spotlight-card items-center" spotlightColor="rgba(0, 229, 255, 0.2)">
+            <div className=' bg-white/10 backdrop-blur-sm rounded-2xl '>
+              <Image src={svg1} width={1000} height={250} alt='svg' className='rounded-2xl relative'></Image>
+              <div className='absolute -translate-y-32 translate-x-89 rounded-full '>
+              
+      <DraggableAvatar
+  image= '/noyon2.jpg'
+  borderColor="#60A5FA"
+  range={200}
+  size={90}
+/>              </div>
+            </div>
           </SpotlightCard>
         </div>
         <div className=" col-span-4 row-span-6">
@@ -22,12 +50,44 @@ export default function LandingPage() {
               showBorder={false}
               className="custom-class"
             >
-              <h3 className='text-center text-4xl mb-5'>Passionate about cutting-edge technologies</h3>
+              <h3 className='text-center text-2xl p-4 mb-5'>Passionate about cutting-edge <br /> technologies</h3>
+              <div style={{ height: '100px', position: 'relative', overflow: 'hidden' }}>
+                <LogoLoop
+                  logos={imageLogos}
+                  speed={80}
+                  direction="left"
+                  logoHeight={48}
+                  gap={40}
+                  pauseOnHover
+                  scaleOnHover
+                  fadeOut
+                  fadeOutColor="#ffffff"
+                  ariaLabel="Technology partners"
+                />
+
+              </div>
+              <div style={{ height: '100px', position: 'relative', overflow: 'hidden' }}>
+                <LogoLoop
+                  logos={imageLogos}
+                  clsg
+                  speed={80}
+                  direction="right"
+                  logoHeight={48}
+                  gap={40}
+                  pauseOnHover
+                  scaleOnHover
+                  fadeOut
+                  fadeOutColor="#ffffff"
+                  ariaLabel="Technology partners"
+                />
+
+              </div>
+
             </GradientText>
-            
+
           </SpotlightCard>
         </div>
-   <div className=" col-span-4 row-span-6 ">
+        <div className=" col-span-4 row-span-6 ">
           <SpotlightCard className="custom-spotlight-card p-4" spotlightColor="rgba(0, 229, 255, 0.2)">
             <GradientText
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -37,6 +97,17 @@ export default function LandingPage() {
             >
               <h3 className='text-center text-2xl mt-5'>I'm very flexible with time zone communications</h3>
             </GradientText>
+         <div className='flex flex-col md:flex-row itemes-center justify-around mt-3 gap-2'>
+             <MorphyButton size="lg">
+              GB UK
+            </MorphyButton>
+             <MorphyButton size="lg">
+            Bangladesh
+            </MorphyButton>
+             <MorphyButton size="lg">
+              In USA
+            </MorphyButton>
+         </div>
             <Globe
               rotateCities={["new york", "london", "tokyo", "dubai"]}
               rotationSpeed={3000}
@@ -48,10 +119,10 @@ export default function LandingPage() {
               ]}
               glowColor={[0.1, 0.8, 1]}
               markerColor={[0.1, 0.8, 1]}
-              className="w-full h-[400px]" />
-                     </SpotlightCard>
+              className="md:w-full md:h-[400px]" />
+          </SpotlightCard>
         </div>
-   <div className=" col-span-4 row-span-2 ">
+        <div className=" col-span-4 row-span-2 ">
           <SpotlightCard className="custom-spotlight-card p-4" spotlightColor="rgba(0, 229, 255, 0.2)">
             <GradientText
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -61,7 +132,7 @@ export default function LandingPage() {
             >
               <h3 className='text-center text-2xl mt-5'>Let's work together on your next project</h3>
             </GradientText>
-         <button className="flex items-center justify-center gap-3 mt-3 
+            <button className="flex items-center justify-center gap-3 mt-3 
                    text-white rounded-full font-medium 
                   ">
               <svg

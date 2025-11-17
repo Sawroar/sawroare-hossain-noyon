@@ -1,5 +1,5 @@
+import SpotlightCard from '@/components/SpotlightCard'
 import TiltedCard from '@/components/TiltedCard'
-import React from 'react'
 
 export default function Work() {
     return (
@@ -9,26 +9,23 @@ export default function Work() {
             <div className='grid md:grid-cols-12 gap-5 '>
                 <div className='grid col-span-8'>
                     <div>
-                        <div className=' bg-blue-700 py-6 rounded-2xl'>
-                            <TiltedCard
-                                imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
-                                altText="Kendrick Lamar - GNX Album Cover"
-                                captionText="Kendrick Lamar - GNX"
-                                containerHeight="300px"
-                                containerWidth="800px"
-                                imageHeight="300px"
-                                imageWidth="600px"
-                                rotateAmplitude={12}
-                                scaleOnHover={1.2}
-                                showMobileWarning={false}
-                                showTooltip={true}
-                                displayOverlayContent={true}
-                                overlayContent={
-                                    <p className="tilted-card-demo-text">
-                                        Engine Experts
-                                    </p>
-                                }
-                            />
+                        <div className=' bg-blue-700 p-1 rounded-2xl'>
+                        <div className="col-span-1 md:col-span-4 md:row-span-2">
+          <SpotlightCard className="custom-spotlight-card p-1" spotlightColor="rgba(0, 229, 255, 0.2)">
+            <div className="h-[250px] md:h-[300px] n==">
+              <TiltedCard
+                imageSrc="https://youtu.be/KVR9V4vsp-Y?si=3Hz83qp7CnTMtgPT"
+                videoType="youtube"
+              captionText='Engine Experts'
+                rotateAmplitude={12}
+                scaleOnHover={1.1}
+                showTooltip={true}
+                displayOverlayContent={true}
+              
+              />
+            </div>
+          </SpotlightCard>
+        </div>
                         </div>
                     </div>
                 </div>
@@ -51,7 +48,7 @@ export default function Work() {
                     SentrySentry
                 </div>
             </div>
-            <div className='grid md:grid-cols-12 gap-5 mt-6 '>
+            <div className='grid md:grid-cols-12 grid-cols-1 gap-5 mt-6 '>
                 <div className='grid col-span-8'>
                     <div>
                         <div className=' bg-blue-700 py-6 rounded-2xl border-[#3B82F6] border-4'>
@@ -68,11 +65,7 @@ export default function Work() {
                                 showMobileWarning={false}
                                 showTooltip={true}
                                 displayOverlayContent={true}
-                                overlayContent={
-                                    <p className="tilted-card-demo-text">
-                                        Engine Experts
-                                    </p>
-                                }
+                               
                             />
                         </div>
                     </div>

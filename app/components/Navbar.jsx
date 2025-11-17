@@ -4,6 +4,9 @@ import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import ThemeSwitchIcon from './theme-switch';
+import logo1 from '../../public/logo.png';
+import Image from 'next/image';
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
     const [activeLink, setActiveLink] = useState('home');
@@ -20,14 +23,14 @@ export default function Navbar() {
         <div className="flex items-center justify-center relative">
           {/* Logo */}
           <motion.a
-            href="home"
+            href="/"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="text-2xl font-bold text-white absolute left-6 z-10"
           >
             <div className="flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <span className="text-sm font-bold">SHN</span>
+              <Image src={logo1} height={50} width={50} alt='logo'></Image>
             </div>
           </motion.a>
 
