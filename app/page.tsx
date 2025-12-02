@@ -2,6 +2,8 @@
   import Introduction from '@/app/components/Introduction'
   import LandingPage from '@/app/components/LandingPage'
 import Work from './components/Work';
+import Details from './components/details';
+import Myskill from './components/MySkill';
 import Footer from './components/Footer';
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
   <Introduction></Introduction>
   <LandingPage></LandingPage>
   <Work></Work>
+  <Myskill></Myskill>
+  <Details></Details>
   <Footer></Footer>
     </div>
   );

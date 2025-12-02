@@ -12,10 +12,10 @@ export default function Navbar() {
     const [activeLink, setActiveLink] = useState('home');
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '#about' },
-    { name: 'Work', href: '#projects' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'More', href: '#more' },
+    { name: 'About', href: '/about' },
+    { name: 'Work', href: '/projects' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'More', href: '/more' },
   ];
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-2">
@@ -71,7 +71,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="hidden lg:flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/15 transition-all absolute right-6"
+            className="hidden lg:flex items-center justify-center w-12 h-12   transition-all absolute right-6"
           >
                 <ThemeSwitchIcon></ThemeSwitchIcon>
             <svg

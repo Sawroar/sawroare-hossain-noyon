@@ -47,7 +47,7 @@ export default function Introduction() {
         <div className="flex items-center justify-center gap-4 mt-6 bg-linear-90">
           <div className="flex items-center gap-4">
             {/* Let's Connect Button */}
-            <button className="flex items-center  px-1.5 py-1  
+            <div className="flex items-center  px-1.5 py-1  
                    rounded-full font-semibold    bg-white/10 backdrop-blur-sm hover:text-black   border border-white/20
                    transition-all duration-600 group">
               <MorphyButton size="lg" className='cursor-pointer'>
@@ -66,7 +66,7 @@ export default function Introduction() {
                </div>
               </MorphyButton>
 
-            </button>
+            </div>
 
             {/* Email Button */}
             <button className="flex items-center gap-3  
